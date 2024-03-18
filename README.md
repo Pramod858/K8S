@@ -22,7 +22,12 @@ kubectl apply -f create_role.yaml
 kubectl apply -f bind_role_to_service.yaml
 ```
 
-### 5. Create token [Ref].(https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#create-token)
+### 5. Create Secret ([Ref](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#create-token).)
 ```bash
-kubectl apply -f create_token.yaml -n webapps
+kubectl apply -f create_secret.yaml -n webapps
+```
+
+### 6. Describe Secrete
+```bash
+kubectl describe secret mysecretname -n webapps
 ```
