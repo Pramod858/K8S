@@ -9,7 +9,7 @@ eksctl create cluster --name=my-eks \
 ```
 ```bash
 eksctl utils associate-iam-oidc-provider \
-    --region us east-1 \
+    --region us-east-1 \
     --cluster my-eks \
     --approve
 ```
