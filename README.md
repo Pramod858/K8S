@@ -52,33 +52,48 @@ eksctl create nodegroup --cluster=my-eks \
                        --alb-ingress-access
 ```
 ## Steps
+### 1. Clone the repo
+```bash
+git clone https://github.com/Pramod858/K8S.git
+```
 
-### 1. Create Name Space
+### 2.Change the dir and give permission
+```bash
+cd K8S
+chmod +x *
+````
+or
+```bash
+cd K8S
+find . -type f -not -name 'README.md' -exec chmod +x {} +
+```
+
+### 3. Create Name Space
 ```bash
 kubectl create ns webapps
 ```
 
-### 2. Create Service Account
+### 4. Create Service Account
 ```bash
 kubectl apply -f service_account.yaml
 ```
 
-### 3. Create Role
+### 5. Create Role
 ```bash
 kubectl apply -f create_role.yaml
 ```
 
-### 4. Bind Role to Service Account
+### 6. Bind Role to Service Account
 ```bash
 kubectl apply -f bind_role_to_service.yaml
 ```
 
-### 5. Create Secret ([Ref.](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#create-token))
+### 7. Create Secret ([Ref.](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#create-token))
 ```bash
 kubectl apply -f create_secret.yaml -n webapps
 ```
 
-### 6. Describe Secrete
+### 8. Describe Secrete
 ```bash
 kubectl describe secret mysecretname -n webapps
 ```
