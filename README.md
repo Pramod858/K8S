@@ -1,4 +1,23 @@
 # K8S
+## AWS CLI
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+## EKSCTL
+```bash
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+```
+## KUBECTL
+Download latest version from [here.](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+```bash
+sudo curl --silent --location -o /usr/local/bin/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.0/2024-05-12/bin/linux/amd64/kubectl
+sudo chmod +x /usr/local/bin/kubectl
+kubectl version --client
+```
 ## Create EKS Cluster
 ```bash
 eksctl create cluster --name=my-eks \
@@ -13,6 +32,7 @@ eksctl utils associate-iam-oidc-provider \
     --cluster my-eks \
     --approve
 ```
+### Replace ssh-public-key with your actual key-pair name
 ```bash
 eksctl create nodegroup --cluster=my-eks \
                        --region=us-east-1 \
