@@ -58,6 +58,11 @@ eksctl create nodegroup --cluster=my-eks \
                        --appmesh-access \
                        --alb-ingress-access
 ```
+
+```bash
+eksctl get cluster --name my-eks --region us-east-1
+aws eks update-kubeconfig --region us-east-1 --name my-eks
+```
 ## Steps
 ### 1. Clone the repo
 ```bash
